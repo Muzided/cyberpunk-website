@@ -77,7 +77,7 @@ export default function BlogPage() {
         className="mb-12 text-center"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4 neon-text">
-          <span className="glitch" data-text="NEURAL FEED">
+          <span className="glitch">
             NEURAL FEED
           </span>
         </h1>

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { companyName } from "@/lib/helper"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -42,7 +43,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 neon-text">
-                CLICKFLICK
+                {companyName}
               </span>
             </motion.div>
           </Link>

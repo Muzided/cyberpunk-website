@@ -47,7 +47,7 @@ export default function ContactPage() {
         className="mb-12 text-center"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4 neon-text">
-          <span className="glitch" data-text="CONNECT">
+          <span className="glitch" >
             CONNECT
           </span>
         </h1>

@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Zap, Clock, BarChart, CheckCircle } from "lucide-react"
+import { companyName } from "@/lib/helper"
 
 export default function AboutSection() {
   const ref = useRef(null)
@@ -43,8 +44,8 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 neon-text">
-            <span className="glitch" data-text="ABOUT CLICK FLICK">
-              ABOUT CLICK FLICK
+            <span className="glitch uppercase" >
+              ABOUT {companyName} tech
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-8"></div>

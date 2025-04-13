@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import BlockchainNetwork from "@/components/blockchain-network"
 import SplineHeroObject from "./spline-hero-object"
+import { companyName } from "@/lib/helper"
 
 export default function HeroSection() {
   const ref = useRef(null)
@@ -28,8 +29,8 @@ export default function HeroSection() {
         <div className="max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="glitch block" data-text="Click_Flick">
-                Click_Flick
+              <span className="glitch block" >
+                {companyName}
               </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 neon-text">
                 TECH SOLUTIONS
