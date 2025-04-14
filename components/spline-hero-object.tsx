@@ -62,7 +62,7 @@ export default function SplineHeroObject() {
     { icon: Code, label: "Web3" },
     { icon: Lock, label: "Security" },
     { icon: Zap, label: "Performance" },
-    { icon: Globe, label: "Global" },
+    { icon: Globe, label: "Seo" },
   ]
 
   // Pre-calculate values outside the map function
@@ -113,20 +113,7 @@ export default function SplineHeroObject() {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, type: "spring" }}
           >
-            <motion.div
-              className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600/40 to-blue-600/40 flex items-center justify-center backdrop-blur-sm"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <motion.div
-                className="text-white text-xl font-bold"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                CF
-              </motion.div>
-            </motion.div>
-
+           
             {/* Pulsing rings */}
             {[40, 80, 120].map((size, i) => (
               <motion.div

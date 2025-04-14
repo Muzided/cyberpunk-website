@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Calendar } from "lucide-react"
 
 interface BlogPost {
-  id: number
+  id: number | string
   title: string
   excerpt: string
   date: string
@@ -62,4 +62,3 @@ export default function BlogCard({ post }: BlogCardProps) {
     </motion.div>
   )
 }
-

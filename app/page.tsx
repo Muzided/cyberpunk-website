@@ -7,6 +7,7 @@ import AboutSection from "@/components/about-section"
 import QuoteSection from "@/components/quote-section"
 import ServicesSection from "@/components/services-section"
 import SkillsSection from "@/components/skills-section"
+import TawkWidget from "@/components/TawkWidget"
 
 export default function Home() {
   const ref = useRef(null)
@@ -29,6 +30,9 @@ export default function Home() {
       <QuoteSection />
       <ServicesSection />
       <SkillsSection />
+      <TawkWidget/>
+
+      
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import BlogCard from "@/components/blog-card"
 
+
 const blogPosts = [
   {
     id: 1,
