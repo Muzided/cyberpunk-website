@@ -30,7 +30,7 @@ export default function HeroSection() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="glitch block" >
-                {companyName}
+                {companyName} techsss
               </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 neon-text">
                 TECH SOLUTIONS
