@@ -1,64 +1,20 @@
+// app/blog/page.tsx
 "use client"
 
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import BlogCard from "@/components/blog-card"
-
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Future of Blockchain Technology",
-    excerpt: "Exploring the next generation of decentralized applications and their impact on society.",
-    date: "March 15, 2024",
-    category: "Technology",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 2,
-    title: "Neural Interfaces: Merging Minds with Machines",
-    excerpt: "How brain-computer interfaces are revolutionizing human-machine interaction.",
-    date: "March 10, 2024",
-    category: "Science",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 3,
-    title: "Quantum Computing Breakthroughs",
-    excerpt: "Recent advancements in quantum computing and what they mean for cybersecurity.",
-    date: "March 5, 2024",
-    category: "Computing",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 4,
-    title: "The Rise of Digital Identity",
-    excerpt: "How blockchain and cryptography are reshaping personal identity in the digital age.",
-    date: "February 28, 2024",
-    category: "Cybersecurity",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 5,
-    title: "Artificial Intelligence in Cyberpunk Fiction",
-    excerpt: "Examining how AI is portrayed in cyberpunk literature and its parallels to modern technology.",
-    date: "February 20, 2024",
-    category: "Culture",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    id: 6,
-    title: "The Ethics of Neural Enhancement",
-    excerpt: "Exploring the moral implications of cognitive augmentation technologies.",
-    date: "February 15, 2024",
-    category: "Ethics",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-]
+import { fetchBlogPosts, BlogPost } from "../../services/api"
 
 export default function BlogPage() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+  const [limit, setLimit] = useState<number>(5)
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -67,6 +23,28 @@ export default function BlogPage() {
         staggerChildren: 0.1,
       },
     },
+  }
+
+  useEffect(() => {
+    const loadBlogPosts = async () => {
+      try {
+        setIsLoading(true)
+        const posts = await fetchBlogPosts(limit)
+        setBlogPosts(posts)
+        setError(null)
+      } catch (err) {
+        setError("Failed to load blog posts. Please try again later.")
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadBlogPosts()
+  }, [limit])
+
+  const handleLoadMore = () => {
+    setLimit(prevLimit => prevLimit + 5)
   }
 
   return (
@@ -97,23 +75,59 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        {blogPosts.map((post) => (
-          <BlogCard key={post.id} post={post} />
-        ))}
-      </motion.div>
+      {isLoading ? (
+        <div className="flex justify-center items-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+        </div>
+      ) : error ? (
+        <div className="text-center py-10">
+          <p className="text-red-500">{error}</p>
+          <Button 
+            onClick={() => setBlogPosts([])} 
+            className="mt-4"
+          >
+            Try Again
+          </Button>
+        </div>
+      ) : (
+        <>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {blogPosts.map((post) => (
+              <BlogCard key={post._id} post={{
+                id: post._id,
+                title: post.title,
+                excerpt: post.excerpt,
+                date: new Date(post.createdAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                }),
+                category: post.categories[0] || "Uncategorized",
+                image: post.featuredImage || "/placeholder.svg?height=400&width=600",
+                // Add any other properties your BlogCard component expects
+              }} />
+            ))}
+          </motion.div>
 
-      <div className="mt-12 text-center">
-        <Button variant="outline" className="border-primary/50 hover:border-primary">
-          Load More Articles
-        </Button>
-      </div>
+          {blogPosts.length > 0 && (
+            <div className="mt-12 text-center">
+              <Button 
+                variant="outline" 
+                className="border-primary/50 hover:border-primary"
+                onClick={handleLoadMore}
+                disabled={isLoading}
+              >
+                {isLoading ? "Loading..." : "Load More Articles"}
+              </Button>
+            </div>
+          )}
+        </>
+      )}
     </div>
   )
 }
-
