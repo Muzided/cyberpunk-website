@@ -179,7 +179,7 @@ export default function SplineHeroObject() {
                         : 1,
                   }}
                 >
-                  {/* <Icon className="h-8 w-8 text-primary" /> */}
+                  <Icon className="h-8 w-8 text-primary" />
                 </motion.div>
                 <motion.div
                   className="mt-2 text-xs font-medium text-primary/80 backdrop-blur-sm px-2 py-1 rounded-full bg-background/50"

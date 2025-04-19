@@ -7,7 +7,8 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { companyName } from "@/lib/helper"
-
+import {gsap} from "gsap"
+import {useGSAP} from "@gsap/react"
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -29,6 +30,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
+    { name: "Work", path: "/work" },
     { name: "Contact", path: "/contact" },
   ]
 

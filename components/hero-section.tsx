@@ -9,28 +9,16 @@ import SplineHeroObject from "./spline-hero-object"
 import { companyName } from "@/lib/helper"
 
 export default function HeroSection() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+ 
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-start pt-20">
-      <div className="absolute inset-0 overflow-hidden ">
-        <motion.div style={{ opacity }} className="h-full w-full">
-         <SplineHeroObject/>
-        </motion.div>
-      </div>
-
-      <div className="w-fit pt-20 px-4  md:px-20 relative z-10 ">
-        <div className="max-w-3xl">
+    <section  className="relative min-h-screen flex md:flex-row flex-col items-center justify-center pt-20 px-4 md:px-20">
+      <div className="    items-center justify-center   w-1/2">
+        <div className="w-full flex flex-col gap-4">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="glitch block" >
-                {companyName} techsss
+                {companyName} 
               </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 neon-text">
                 TECH SOLUTIONS
@@ -67,7 +55,31 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
+     <div className="h-[600px]   w-1/2   border-blue-300/5 rounded-xl  from-transparent to-slate-900/50 " >
+      <SplineModalSection/>
+      </div>
+      
     </section>
   )
 }
 
+
+const SplineModalSection = () => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
+
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  return (
+
+    <section ref={ref} className="relative  h-[600px] rounded-xl  flex items-start pt-30">
+      <div className="absolute inset-0 overflow-hidden rounded-xl ">
+        <motion.div style={{ opacity }} className="h-full w-full">
+          <SplineHeroObject />
+        </motion.div>
+      </div>
+    </section>
+  )
+}

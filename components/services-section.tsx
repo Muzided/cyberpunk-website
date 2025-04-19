@@ -87,7 +87,7 @@ export default function ServicesSection() {
             <motion.div
               key={index}
               variants={item}
-              className="bg-background/40 backdrop-blur-sm p-6 rounded-lg border border-primary/20 card-glow"
+              className="bg-background/40 backdrop-blur-sm p-6 rounded-lg border border-primary/20 "
             >
               <div className="text-primary mb-4">{service.icon}</div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>

@@ -9,10 +9,11 @@ export default function QuoteSection() {
   const isInView = useInView(ref, { once: false, amount: 0.2 })
 
   return (
-    <section ref={ref} className="py-20 relative">
+    <section ref={ref} className=" relative bg-image_quote">
+      <div className="bg-black/60 flex items-center justify-center h-full">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background -z-10" />
 
-      <div className="container mx-auto px-4">
+      <div className=" w-full py-3  shadow-lg backdrop-blur-sm  bg-black/50">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -68,6 +69,7 @@ export default function QuoteSection() {
             transition={{ duration: 0.5, delay: 0.9 }}
           />
         </motion.div>
+        </div>
       </div>
     </section>
   )

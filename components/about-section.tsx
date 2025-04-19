@@ -59,7 +59,7 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              At Click Flick Solutions, we specialize in delivering innovative digital solutions for both Web 3.0 and
+              At Innovaria Tech , we specialize in delivering innovative digital solutions for both Web 3.0 and
               Web 2.0 ecosystems. Our expertise spans blockchain technologies like Ethereum, Polygon, and Tron,
               empowering decentralized applications.
             </p>
@@ -143,7 +143,7 @@ export default function AboutSection() {
                 />
 
                 {/* Tech words */}
-                {["Blockchain", "Ethereum", "Next.js", "MERN", "Web3", "Polygon", "Laravel", "SEO"].map(
+                {["Blockchain", "Ethereum", "Next.js", "MERN", "Web3", "Polygon", "Node","Figma","n8n", "SEO"].map(
                   (word, index) => {
                     const randomX = Math.random() * 80 - 40
                     const randomY = Math.random() * 80 - 40
@@ -184,9 +184,9 @@ export default function AboutSection() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 neon-text mb-2">
-                    CLICK FLICK
+                    Innovaria Tech
                   </div>
-                  <div className="text-sm text-muted-foreground">SOLUTIONS</div>
+                
 
                   <motion.div
                     className="w-32 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mt-2"

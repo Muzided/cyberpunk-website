@@ -63,6 +63,20 @@
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
+.bg-image_quote {
+  background-image: url('../public/service-item.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.bg-image_work {
+  background-image: url('../public/hero-dark.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+
 .neon-text {
   text-shadow: 0 0 5px rgba(138, 43, 226, 0.7), 0 0 10px rgba(138, 43, 226, 0.5), 0 0 15px rgba(138, 43, 226, 0.3);
 }
