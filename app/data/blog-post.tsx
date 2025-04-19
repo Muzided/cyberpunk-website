@@ -1,5 +1,5 @@
 // Define your blog posts data here
-export const blogPosts = [
+ export  const blogPosts = [
     {
       id: "1",
       title: "The Future of Blockchain Technology",

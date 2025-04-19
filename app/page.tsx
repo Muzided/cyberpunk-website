@@ -9,6 +9,8 @@ import ServicesSection from "@/components/services-section"
 import SkillsSection from "@/components/skills-section"
 import TawkWidget from "@/components/TawkWidget"
 
+import {blogPosts}  from "../app/data/blog-post"
+
 export default function Home() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
