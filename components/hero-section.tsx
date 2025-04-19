@@ -56,7 +56,7 @@ export default function HeroSection() {
         </div>
       </div>
      <div className="h-[600px]   w-1/2   border-blue-300/5 rounded-xl  from-transparent to-slate-900/50 " >
-      <SplineModalSection/>
+      {/* <SplineModalSection/> */}
       </div>
       
     </section>
